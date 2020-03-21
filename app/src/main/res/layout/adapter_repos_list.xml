@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardUseCompatPadding="true"
+    tools:ignore="UnusedAttribute">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp">
+
+        <ImageView
+            android:id="@+id/iv_repo_logo"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:padding="5dp"
+            android:src="@drawable/git_repository_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="A Github Repository Logo" />
+
+        <TextView
+            android:id="@+id/tv_repo_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="5dp"
+            android:textColor="#067DDC"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_repo_logo"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="android-architecture" />
+
+        <TextView
+            android:id="@+id/tv_repo_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="5dp"
+            android:maxLines="10"
+            android:text="Description"
+            android:textColor="?android:textColorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_repo_name"
+            tools:ignore="UnusedAttribute"
+            tools:text="A collection of samples to discuss and showcase different architectural tools and patterns for Android apps." />
+
+
+        <ImageView
+            android:id="@+id/iv_dot"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:padding="8dp"
+            android:src="@drawable/xml_drawable_dot"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_total_forks"
+            app:layout_constraintStart_toStartOf="@+id/tv_total_forks"
+            app:layout_constraintTop_toTopOf="@+id/tv_total_forks" />
+
+        <TextView
+            android:id="@+id/tv_repo_language"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="5dp"
+            android:text="Language"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_dot"
+            app:layout_constraintStart_toEndOf="@+id/iv_dot"
+            app:layout_constraintTop_toTopOf="@+id/iv_dot"
+            tools:ignore="RtlCompat" />
+
+        <ImageView
+            android:id="@+id/iv_stars"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:padding="3dp"
+            android:src="@drawable/ic_star"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_repo_description" />
+
+        <TextView
+            android:id="@+id/tv_total_stars"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_stars"
+            app:layout_constraintStart_toEndOf="@id/iv_stars"
+            app:layout_constraintTop_toTopOf="@id/iv_stars"
+            tools:text="30" />
+
+        <ImageView
+            android:id="@+id/iv_forks"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:padding="3dp"
+            android:src="@drawable/ic_git_branch"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_total_stars"
+            app:layout_constraintStart_toEndOf="@+id/tv_total_stars"
+            app:layout_constraintTop_toTopOf="@+id/tv_total_stars" />
+
+        <TextView
+            android:id="@+id/tv_total_forks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="5dp"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_forks"
+            app:layout_constraintStart_toEndOf="@+id/iv_forks"
+            app:layout_constraintTop_toTopOf="@+id/iv_forks"
+            tools:text="30" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
