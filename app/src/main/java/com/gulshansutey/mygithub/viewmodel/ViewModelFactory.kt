@@ -10,6 +10,12 @@ class ViewModelFactory(private val repository: DataRepository) : ViewModelProvid
             @Suppress("UNCHECKED_CAST")
             return MainActivityViewModel(repository) as T
         }
+        if (modelClass.isAssignableFrom(RepoDetailActivityViewModel::class.java)) {
+            @Suppress("UNCHECKED_CAST")
+            return RepoDetailActivityViewModel(repository) as T
+        }
         throw IllegalArgumentException("Unknown ViewModel class")
     }
+
+
 }

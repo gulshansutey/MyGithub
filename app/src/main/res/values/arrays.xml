@@ -2,13 +2,10 @@
 <resources>
 
     <string-array name="sorting_options_array">
-            <item>Best Match</item>
             <item>Most stars</item>
             <item>Fewest starts</item>
             <item>Most forks</item>
             <item>Fewest forks</item>
-            <item>Recently updated</item>
-            <item>Least recently updated</item>
     </string-array>
 
 </resources>

@@ -16,13 +16,25 @@ interface GitRepoDao {
         const val tableName = "Github_Repo_Table"
     }
 
-
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(list: List<GitRepo>)
 
     @Query(
-        "SELECT * FROM Github_Repo_Table WHERE (name LIKE :queryString) OR (description LIKE " +
-                ":queryString) ORDER BY stars DESC, name ASC"
+        "SELECT * FROM " + tableName + " WHERE (name LIKE :queryString) OR (description LIKE " +
+                ":queryString) ORDER BY :sortBY ASC LIMIT 10"
     )
-    fun reposByName(@NotNull queryString: String): LiveData<List<GitRepo>>
+    fun reposByNameAsc(
+        @NotNull queryString: String,
+        @NotNull sortBY: String
+    ): LiveData<List<GitRepo>>
+
+    @Query(
+        "SELECT * FROM " + tableName + " WHERE (name LIKE :queryString) OR (description LIKE " +
+                ":queryString) ORDER BY :sortBY DESC LIMIT 10"
+    )
+
+    fun reposByNameDes(
+        @NotNull queryString: String,
+        @NotNull sortBY: String
+    ): LiveData<List<GitRepo>>
 }

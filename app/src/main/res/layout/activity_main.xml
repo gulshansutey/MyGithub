@@ -1,72 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.MainActivity">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:elevation="0dp">
 
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:gravity="center"
+            app:contentInsetStartWithNavigation="0dp"
+            app:layout_scrollFlags="scroll"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <include layout="@layout/layout_toolbar" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginBottom="1dp"
+            app:cardUseCompatPadding="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:indeterminate="true"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="Sort As"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="15sp" />
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/sort_spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:visibility="gone"
-        android:orientation="vertical"
         android:id="@+id/view_empty_screen"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <ImageView
             android:layout_width="80dp"
-            android:tint="#939191"
+            android:layout_height="80dp"
             android:padding="10dp"
             android:src="@drawable/git_place_holder"
-            android:layout_height="80dp"/>
+            android:tint="#939191" />
 
         <TextView
             android:layout_width="wrap_content"
-            android:text="No results found"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="No results found" />
     </LinearLayout>
-
-
 
     <include layout="@layout/content_main" />
 
-
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        app:cardUseCompatPadding="true"
-        android:layout_marginLeft="2dp"
-        android:layout_marginBottom="1dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="2dp"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:layout_height="wrap_content">
-            <SearchView
-                android:layout_width="match_parent"
-                android:clickable="true"
-                android:background="#fff"
-                app:iconifiedByDefault="false"
-                android:focusable="true"
-                app:defaultQueryHint="Search git Repo..."
-                android:id="@+id/search_view"
-                android:layout_height="match_parent"/>
-            <ProgressBar
-                android:id="@+id/progressBar"
-                android:indeterminate="true"
-                android:layout_marginTop="-5dp"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:visibility="gone"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
-
-</FrameLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

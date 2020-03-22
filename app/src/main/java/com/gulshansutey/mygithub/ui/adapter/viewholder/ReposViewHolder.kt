@@ -10,7 +10,10 @@ import com.gulshansutey.mygithub.R
 import com.gulshansutey.mygithub.model.GitRepo
 import com.gulshansutey.mygithub.ui.adapter.ReposRecyclerAdapter
 
-class ReposViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+class ReposViewHolder(
+    view: View,
+    onItemClickListener: ReposRecyclerAdapter.OnItemClickListener?
+) : RecyclerView.ViewHolder(view) {
 
     private val name: TextView = view.findViewById(R.id.tv_repo_name)
     private val description: TextView = view.findViewById(R.id.tv_repo_description)
@@ -23,9 +26,9 @@ class ReposViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     init {
         view.setOnClickListener {
-            if (view.context is ReposRecyclerAdapter.OnItemClickListener) {
-                (view.context as ReposRecyclerAdapter.OnItemClickListener).onItemClick()
-            }
+
+            onItemClickListener?.onItemClick(gitRepo)
+
         }
     }
 
@@ -49,10 +52,14 @@ class ReposViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     }
 
     companion object {
-        fun create(parent: ViewGroup): ReposViewHolder {
+        fun create(
+            parent: ViewGroup,
+            onItemClickListener: ReposRecyclerAdapter.OnItemClickListener?
+        ): ReposViewHolder {
+
             val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.adapter_repos_list, parent, false)
-            return ReposViewHolder(view)
+            return ReposViewHolder(view, onItemClickListener)
         }
     }
 

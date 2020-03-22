@@ -26,7 +26,7 @@ abstract class GitRepoDataBase : RoomDatabase() {
             Room.databaseBuilder(
                 context.applicationContext,
                 GitRepoDataBase::class.java, "GithubRepository.db"
-            )
+            ).fallbackToDestructiveMigration()
                 .build()
     }
 }

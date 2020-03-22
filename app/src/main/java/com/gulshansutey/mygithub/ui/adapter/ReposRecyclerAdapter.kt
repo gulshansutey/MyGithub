@@ -24,7 +24,7 @@ class ReposRecyclerAdapter : ListAdapter<GitRepo, RecyclerView.ViewHolder>(LIST_
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return ReposViewHolder.create(parent)
+        return ReposViewHolder.create(parent, onItemClickListener)
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -39,6 +39,6 @@ class ReposRecyclerAdapter : ListAdapter<GitRepo, RecyclerView.ViewHolder>(LIST_
     }
 
     interface OnItemClickListener {
-        fun onItemClick()
+        fun onItemClick(gitRepo: GitRepo?)
     }
 }
